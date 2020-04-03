@@ -1,6 +1,5 @@
 h1 {
     text-align: center;
-    background-color: #303030;
     color: white;
 }
 
@@ -12,4 +11,13 @@ i {
 
 #currentLocation {
     border: 1px solid lightgray;
+}
+
+#header {
+    background-color: #303030;
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 10px;
 }
