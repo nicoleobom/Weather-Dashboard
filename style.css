@@ -1,0 +1,15 @@
+h1 {
+    text-align: center;
+    background-color: #303030;
+    color: white;
+}
+
+i {
+    background-color: lightblue;
+    color: white;
+    padding: 10px;
+}
+
+#currentLocation {
+    border: 1px solid lightgray;
+}
