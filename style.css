@@ -3,10 +3,46 @@ h1 {
     color: white;
 }
 
+button {
+    width: 50px;
+    background-color: #007bff;
+    border: solid 1px #007bff;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: grey;
+    transition: ease-in .25s;
+    border: solid 1px grey;
+}
+
 i {
-    background-color: lightblue;
     color: white;
     padding: 10px;
+}
+
+input {
+    width: 75%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.forecast {
+    background-color: #007bff;
+    color: white;
+    margin: 12px;
+    height: 200px;
+    border: solid 1px #007bff;
+    border-radius: 5px;
 }
 
 #currentLocation {
