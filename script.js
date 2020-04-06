@@ -1,8 +1,36 @@
+var prevSearched;
+var showCities;
+var cityArray = [];
 
-var todaysDate;
 
-$("button").on("click", function(){
+$(document).ready(getSavedCities());
+
+
+
+function getSavedCities() {
+    prevSearched = JSON.parse(localStorage.getItem("location"));
+    if (prevSearched !== null) {
+        for (i=0; i<prevSearched.length; i++) {
+            showCities = prevSearched[i];
+            var cityDiv = $("<div>");
+            $(cityDiv).attr("class", "list-group-item");
+            var cityLink = $("<a>");
+            $(cityLink).attr("class", "searchHist");
+            $(cityLink).append(showCities);
+            $(cityDiv).append(cityLink);
+            $(".previousSearch").prepend(cityDiv);
+            // $(".previousSearch").append(showCities);
+        }
+    }
+}
+
+
+
+$("#search").on("click", function(){    
     $("#currentLocation").empty();
+    $("#title").empty();
+    $("#fiveDay").empty();
+    var todaysDate;
     var location = $("#searchBar").val();
 
     $.ajax({
@@ -67,10 +95,10 @@ $("button").on("click", function(){
                     var newCol = $("<div>").attr("class", "col-md-2 forecast");
     
                     var day = moment(response.list[i].dt, "X").format("MMMM Do");
-                    $(newCol).append(day + "<br><br>");
+                    $(newCol).append(day + "<br>");
 
-                    var img = "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon;
-                    $(newCol).append("<img src'" + img + "'>");
+                    var img = "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png";
+                    $(newCol).append("<img src='" + img + "'><br>");
 
                     var nextDayTemp = Math.round(response.list[i].main.temp);
                     $(newCol).append("Temp: " + nextDayTemp + "° F<br>");
@@ -82,8 +110,24 @@ $("button").on("click", function(){
                 }
             }
         });
-    
-
     });
 
+    cityArray = JSON.parse(localStorage.getItem("location"));
+    // if (cityArray === null) {
+        cityArray.push(location);
+        localStorage.setItem("location", JSON.stringify(cityArray));
+    // }
+    var cityDiv = $("<div>");
+    var cityLink = $("<a>");
+    $(cityLink).attr("class", "searchHist");
+    $(cityLink).append(location);
+    $(cityDiv).append(cityLink);
+    $(".previousSearch").prepend(cityDiv);
+    
+
+})
+
+$(".searchHist").on("click", function(){
+    $("#searchBar").val($(this).html());
+    $("#search").trigger("click");
 })

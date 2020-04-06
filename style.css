@@ -45,6 +45,27 @@ input {
     border-radius: 5px;
 }
 
+.low {
+    background-color: #289500;
+}
+
+.med {
+    background-color: #f7e400;
+}
+
+.med-high {
+    background-color: #f85900;
+
+}
+
+.high {
+    background-color: #d80010;
+}
+
+.ultra {
+    background-color: #6b49c8;
+}
+
 #currentLocation {
     border: 1px solid lightgray;
 }
