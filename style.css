@@ -3,14 +3,14 @@ h1 {
     color: white;
 }
 
-button {
+#search {
     width: 50px;
     background-color: #007bff;
     border: solid 1px #007bff;
     border-radius: 5px;
 }
 
-button:hover {
+#search:hover {
     background-color: grey;
     transition: ease-in .25s;
     border: solid 1px grey;
@@ -47,34 +47,57 @@ input {
 
 .low {
     background-color: #289500;
+    border: 1px solid #289500;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
 }
 
 .med {
     background-color: #f7e400;
+    border: 1px solid #f7e400;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .med-high {
     background-color: #f85900;
+    border: 1px solid #f85900;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
 
 }
 
 .high {
     background-color: #d80010;
+    border: 1px solid #d80010;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
 }
 
 .ultra {
     background-color: #6b49c8;
+    border: 1px solid #6b49c8;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
 }
 
-#currentLocation {
+.mainCity {
     border: 1px solid lightgray;
+    width: 100%;
+}
+
+.previousSearch div {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    margin: 0px;
+    padding: 10px;
 }
 
 #header {
     background-color: #303030;
     margin-bottom: 20px;
-}
-
-p {
-    margin: 10px;
 }

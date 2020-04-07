@@ -1,45 +1,48 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.2/css/all.css"
+<html lang="en">
+
+<head>
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.2/css/all.css"
         integrity="sha384-zrnmn8R8KkWl12rAZFt4yKjxplaDaT7/EUkKm7AovijfrQItFWR7O/JJn4DAa/gx" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css" type="text/css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript"></script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12" id="header">
-                    <h1>Weather Dashboard</h1>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="header">
+                <h1>Weather Dashboard</h1>
+            </div>
+        </div>
+        <div class="row" id="content">
+            <div class="col-md-3">
+                <h4>Search for a City:</h4>
+                <div class="row">
+                    <div class="col-md-12 md-form active">
+                        <input type="text" placeholder="Search" id="searchBar">
+                        <button id="search" type="button"><i class="fas fa-search"></i></button><br><br>
+                        <div class="previousSearch"></div>
+                    </div>
                 </div>
             </div>
-            <div class="row" id="content">
-                <div class="col-md-3">
-                    <h4>Search for a City:</h4>
-                    <div class="row">
-                        <div class="col-md-12 md-form active">
-                            <input type="text" placeholder="Search" id="searchBar">
-                            <button id="search" type="button"><i class="fas fa-search"></i></button><br><br>
-                            <div class="previousSearch"></div>
-                        </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-12" id="currentLocation">
                     </div>
                 </div>
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-md-12" id="currentLocation">
-                        </div>
-                    </div>
-                    <div class="row" id="title">
-                    </div>
-                    <div class="row" id="fiveDay">
-                    </div>
+                <div class="row" id="title">
+                </div>
+                <div class="row" id="fiveDay">
                 </div>
             </div>
         </div>
-
-    </body>
+    </div>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+</body>
+
 </html>
