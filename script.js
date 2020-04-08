@@ -54,7 +54,7 @@ $("#search").on("click", function () {
 
     // Pull current weather api and then displays the appropriate weather
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=ee1f399344dd6005017bc6cdb6b32e3b&units=imperial",
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=ee1f399344dd6005017bc6cdb6b32e3b&units=imperial",
         method: "GET"
     }).then(function (response) {
         var weatherID = response.weather[0].id;
@@ -62,25 +62,25 @@ $("#search").on("click", function () {
 
         // Thunderstorm
         if (weatherID >= 200 && weatherID <= 232) {
-            weatherIcon = 'http://openweathermap.org/img/wn/11d.png';
+            weatherIcon = 'https://openweathermap.org/img/wn/11d.png';
             // Drizzle and rain
         } else if ((weatherID >= 300 && weatherID <= 321) || (weatherID >= 500 && weatherID <= 531)) {
-            weatherIcon = 'http://openweathermap.org/img/wn/10d.png';
+            weatherIcon = 'https://openweathermap.org/img/wn/10d.png';
             // Snow
         } else if (weatherID >= 600 && weatherID <= 622) {
-            weatherIcon = 'http://openweathermap.org/img/wn/13d.png';
+            weatherIcon = 'https://openweathermap.org/img/wn/13d.png';
             // Clear
         } else if (weatherID === 800) {
-            weatherIcon = 'http://openweathermap.org/img/wn/01d.png';
+            weatherIcon = 'https://openweathermap.org/img/wn/01d.png';
             // Cloudy
         } else if (weatherID >= 801 && weatherID <= 804) {
-            weatherIcon = 'http://openweathermap.org/img/wn/03d.png';
+            weatherIcon = 'https://openweathermap.org/img/wn/03d.png';
             // Atmosphere
         } else if (weatherID >= 701 && weatherID <= 781) {
-            weatherIcon = 'http://openweathermap.org/img/wn/50d.png';
+            weatherIcon = 'https://openweathermap.org/img/wn/50d.png';
             // If anything else, put clouds
         } else {
-            weatherIcon = 'http://openweathermap.org/img/wn/03d.png';
+            weatherIcon = 'https://openweathermap.org/img/wn/03d.png';
         }
 
         // Call key variables and append them to the appropriate divs to display on screen
