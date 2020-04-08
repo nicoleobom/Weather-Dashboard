@@ -107,7 +107,7 @@ $("#search").on("click", function () {
         // Within previous ajax function, this ajax will pull the UV api and display on screen with the rest
         // of the information
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/uvi?appid=ee1f399344dd6005017bc6cdb6b32e3b&lat=" + lat + "&lon=" + lon,
+            url: "https://api.openweathermap.org/data/2.5/uvi?appid=ee1f399344dd6005017bc6cdb6b32e3b&lat=" + lat + "&lon=" + lon,
             method: "GET"
         }).then(function (response) {
             var uv = response.value;
@@ -129,7 +129,7 @@ $("#search").on("click", function () {
 
         // This pulls the forecast api and displays under all other info
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/forecast?q=" + location + "&appid=ee1f399344dd6005017bc6cdb6b32e3b&units=imperial",
+            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&appid=ee1f399344dd6005017bc6cdb6b32e3b&units=imperial",
             method: "GET"
         }).then(function (response) {
             $("#title").append("<h2>5-Day Forecast:</h2><br>")
@@ -140,7 +140,7 @@ $("#search").on("click", function () {
                     var day = moment(response.list[i].dt, "X").format("MMMM Do");
                     $(newCol).append(day + "<br>");
 
-                    var img = "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png";
+                    var img = "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png";
                     $(newCol).append("<img src='" + img + "'><br>");
 
                     var nextDayTemp = Math.round(response.list[i].main.temp);
