@@ -16,6 +16,15 @@ h1 {
     border: solid 1px grey;
 }
 
+#currentLocation {
+    padding-left: 20px;
+}
+
+#title {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
 i {
     color: white;
     padding: 10px;
@@ -40,9 +49,11 @@ input {
     background-color: #007bff;
     color: white;
     margin: 12px;
-    height: 200px;
+    height: auto;
+    max-width: 25%;
     border: solid 1px #007bff;
     border-radius: 5px;
+    text-align: center;
 }
 
 .low {
@@ -83,6 +94,10 @@ input {
     border-radius: 5px;
     color: white;
     padding: 5px;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .mainCity {

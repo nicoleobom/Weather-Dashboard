@@ -18,9 +18,23 @@ function getSavedCities() {
             $(cityLink).append(showCities);
             $(cityDiv).append(cityLink);
             $(".previousSearch").prepend(cityDiv);
+
+            // Removes the last item in the list if the list is greater than 7 divs
+            if ($(".previousSearch").children().length > 7) {
+                $(".previousSearch").children().last().remove();
+            }
         }
     }
 }
+
+// jQuery event listener for the "enter" keypress
+$('#searchBar').keypress(function (e) {
+    var key = e.which;
+    if (key == 13) {
+        $('#search').click();
+        return false;
+    }
+});
 
 // On search button click, empty all content areas, assign local variables, and call ajax function
 $("#search").on("click", function () {
@@ -29,13 +43,16 @@ $("#search").on("click", function () {
         alert("Please enter a valid city name!");
     }
 
+    // Empty out everything that's currently in content sections
     $("#currentLocation").empty();
     $("#title").empty();
     $("#fiveDay").empty();
+
+    // Assign local variables
     var todaysDate;
     var location = $("#searchBar").val();
 
-    // ajax pulls current weather api and then displays the appropriate weather.
+    // Pull current weather api and then displays the appropriate weather
     $.ajax({
         url: "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=ee1f399344dd6005017bc6cdb6b32e3b&units=imperial",
         method: "GET"
@@ -58,10 +75,15 @@ $("#search").on("click", function () {
             // Cloudy
         } else if (weatherID >= 801 && weatherID <= 804) {
             weatherIcon = 'http://openweathermap.org/img/wn/03d.png';
+            // Atmosphere
+        } else if (weatherID >= 701 && weatherID <= 781) {
+            weatherIcon = 'http://openweathermap.org/img/wn/50d.png';
+            // If anything else, put clouds
         } else {
-
+            weatherIcon = 'http://openweathermap.org/img/wn/03d.png';
         }
 
+        // Call key variables and append them to the appropriate divs to display on screen
         var city = response.name;
 
         todaysDate = moment().format('MMMM Do, YYYY');
@@ -78,6 +100,7 @@ $("#search").on("click", function () {
         var wind = response.wind.speed;
         $("#currentLocation").append("Wind Speed: " + wind + " MPH <br><br>");
 
+        // Determine latitude and longitude for upcoming UV index API
         var lat = response.coord.lat;
         var lon = response.coord.lon;
 
@@ -89,6 +112,7 @@ $("#search").on("click", function () {
         }).then(function (response) {
             var uv = response.value;
 
+            // If UV index is within a certain range, display its respective color
             if (uv >= 0 && uv <= 2) {
                 $("#currentLocation").append("UV Index: <span class='low'>" + uv + "</span><br><br>");
             } else if (uv > 2 && uv <= 5) {
@@ -141,11 +165,16 @@ $("#search").on("click", function () {
         localStorage.setItem("location", JSON.stringify(cityArray));
     }
     var cityDiv = $("<div>");
+    $(cityDiv).attr("class", "pointer");
     var cityLink = $("<a>");
     $(cityLink).attr("class", "searchHist");
     $(cityLink).append(location);
     $(cityDiv).append(cityLink);
     $(".previousSearch").prepend(cityDiv);
+
+    if ($(".previousSearch").children().length > 7) {
+        $(".previousSearch").children().last().remove();
+    }
 })
 
 // If a previously searched city is clicked, call the on-click function above
